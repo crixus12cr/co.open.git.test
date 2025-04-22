@@ -2,7 +2,8 @@
 
 # CO.OPEN.GIT.TEST
 
-## Repositorio para pruebas con GIT y GitHub
+## Reto 1
+## Repositorio para pruebas con GIT y GitHub 
 
 Este repositorio está destinado a practicar con Git y GitHub como parte de mis retos de programación. El objetivo es mejorar mi flujo de trabajo con estas herramientas, familiarizarme con la gestión de versiones y aprender a integrar GitHub con mis proyectos de manera eficiente. Aunque no contiene código, me sirve para poner en práctica lo aprendido y asegurarme de seguir buenas prácticas desde el inicio de cualquier proyecto.
 
@@ -19,3 +20,4 @@ git commit -m "first commit"
 git remote add origin https://github.com/crixus12cr/co.open.git.test.git
 git branch -M main
 git push -u origin main
+fdfs
