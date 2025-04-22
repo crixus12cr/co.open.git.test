@@ -20,4 +20,15 @@ git commit -m "first commit"
 git remote add origin https://github.com/crixus12cr/co.open.git.test.git
 git branch -M main
 git push -u origin main
-fdfs
+```
+
+## Reto 2
+
+En el repo local crear estos archivos:
+
+./index.html
+./test.log
+./vendor/autoload.php
+./node_modules/index.ts
+
+El objetivo es realizar un commit y push al repo remoto evitando que archivos de tipo .log y las carpetas vendor y node_modules sean agregadas al commit y se envíen al repo remoto.
