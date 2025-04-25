@@ -1,4 +1,6 @@
-![Open Logo](https://openits.co/wp-content/uploads/2020/07/log-peque.png)
+<p align="center">
+  <img src="https://openits.co/wp-content/uploads/2020/07/log-peque.png" alt="Open Logo">
+</p>
 
 # CO.OPEN.GIT.TEST
 
