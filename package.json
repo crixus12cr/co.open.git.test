@@ -1,0 +1,19 @@
+{
+  "name": "co.open.git.test",
+  "version": "1.0.0",
+  "description": "reto 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log(\"¡Retos de GIT!\");"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crixus12cr/co.open.git.test.git"
+  },
+  "author": "cristian perdomo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crixus12cr/co.open.git.test/issues"
+  },
+  "homepage": "https://github.com/crixus12cr/co.open.git.test#readme"
+}

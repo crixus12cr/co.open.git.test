@@ -32,3 +32,31 @@ En el repo local crear estos archivos:
 ./node_modules/index.ts
 
 El objetivo es realizar un commit y push al repo remoto evitando que archivos de tipo .log y las carpetas vendor y node_modules sean agregadas al commit y se envíen al repo remoto.
+
+## Reto 3
+
+El objetivo es inicializar el proyecto de JS con el que vamos a trabajar:
+
+- 1. Eliminar las carpetas node_modules, vendor y los archivos index.html y test.log, prestar atención al estado del stage en el que quedan estos archivos y carpetas
+- 3. Inicializar un proyecto de Node.js
+- 4. Crear un archivo index.js con el siguiente contenido:
+    console.log("¡Retos de GIT!");
+- 5. Actualizar el repo remoto con el cambio
+
+## Comandos utilizados
+```bash
+# Eliminar carpetas y archivos
+Elimine manualmente las carpetas de vendor y node_modules, ademas elimine el index.html el cual al eliminar se veia en su cambio con un D en el local y el test.log no cambio.
+
+# Inicializar node
+npm init
+
+# Crear archivo index.js
+se creo manualmente el archivo y se agrego lo siguiente:
+- console.log("¡Retos de GIT!")
+
+# Actualizar repositorio
+git add .
+git commit -m "Inicializa nodeJS y elimina carpetas y archivos no usados"
+git push
+```
