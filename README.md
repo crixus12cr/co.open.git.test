@@ -62,3 +62,57 @@ git add .
 git commit -m "Inicializa nodeJS y elimina carpetas y archivos no usados"
 git push
 ```
+## Reto 4
+
+Realizar las siguientes tareas:
+
+1. A partir de la rama main crear una nueva rama llamada development
+2. Regresar a la rama main
+3. Modificar el archivo index.js agregando:
+console.log('Modificación Reto 3 rama main');
+4. Sin perder el cambio de la rama main y sin hacer commit o push de los cambios, cambiar a la rama development y modificar el archivo index.js agregando
+console.log('Modificación Reto 3 rama development');
+5. Hacer push a la rama development
+6. Regresar a la rama main, recuperar los cambios y hacer push a la rama
+
+Se debe dejar el registro de todos los comandos o acciones realizadas para el cumplimiento del reto
+
+## Comandos utilizados
+```bash
+# Crear una nueva rama llamada development
+git checkout -b development
+
+# Regresar a la rama main
+git checkout main
+
+# (Modificar el archivo index.js agregando:)
+console.log('Modificación Reto 3 rama main');
+
+# Guardar los cambios sin hacer commit
+git stash
+
+# Cambiar a la rama development
+git checkout development
+
+# Recuperar los cambios sin eliminar el stash
+git stash apply
+
+# (Modificar el archivo index.js agregando:)
+console.log('Modificación Reto 3 rama development');
+
+# Agregar los cambios, hacer commit y push en development
+git add .
+git commit -m "modificacion en development"
+git push origin development
+
+# Regresar a la rama main
+git checkout main
+
+# Recuperar los cambios restantes del stash (y eliminar el stash)
+git stash pop
+
+# Agregar los cambios, hacer commit y push en main
+git add .
+git commit -m "modificacion rama main"
+git push origin main
+```
