@@ -116,3 +116,23 @@ git add .
 git commit -m "modificacion rama main"
 git push origin main
 ```
+## SOLUCION 2
+
+```bash
+git checkout -b development
+git checkout main
+echo -e '\nconsole.log("Modificación Reto 3 rama main");' >> index.js
+git stash -u -m "2025-04-25 Modifica index.js en rama main"
+git stash show -p stash@{0}
+git stash list
+git checkout development
+echo -e '\nconsole.log("Modificación Reto 3 rama development");' >> index.js
+git add -A
+git commit -m "Modificación al archivo index.js rama development"
+git push origin development
+git checkout main
+git stash pop stash@{0}
+git add -A
+git commit -m "Modificación al archivo index.js rama main"
+git push origin main
+```
