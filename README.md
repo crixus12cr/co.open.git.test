@@ -62,3 +62,90 @@ git add .
 git commit -m "Inicializa nodeJS y elimina carpetas y archivos no usados"
 git push
 ```
+## Reto 4
+
+Realizar las siguientes tareas:
+
+1. A partir de la rama main crear una nueva rama llamada development
+2. Regresar a la rama main
+3. Modificar el archivo index.js agregando:
+console.log('Modificación Reto 3 rama main');
+4. Sin perder el cambio de la rama main y sin hacer commit o push de los cambios, cambiar a la rama development y modificar el archivo index.js agregando
+console.log('Modificación Reto 3 rama development');
+5. Hacer push a la rama development
+6. Regresar a la rama main, recuperar los cambios y hacer push a la rama
+
+Se debe dejar el registro de todos los comandos o acciones realizadas para el cumplimiento del reto
+
+## Comandos utilizados
+```bash
+# Crear una nueva rama llamada development
+git checkout -b development
+
+# Regresar a la rama main
+git checkout main
+
+# (Modificar el archivo index.js agregando:)
+console.log('Modificación Reto 3 rama main');
+
+# Guardar los cambios sin hacer commit
+git stash
+
+# Cambiar a la rama development
+git checkout development
+
+# Recuperar los cambios sin eliminar el stash
+git stash apply
+
+# (Modificar el archivo index.js agregando:)
+console.log('Modificación Reto 3 rama development');
+
+# Agregar los cambios, hacer commit y push en development
+git add .
+git commit -m "modificacion en development"
+git push origin development
+
+# Regresar a la rama main
+git checkout main
+
+# Recuperar los cambios restantes del stash (y eliminar el stash)
+git stash pop
+
+# Agregar los cambios, hacer commit y push en main
+git add .
+git commit -m "modificacion rama main"
+git push origin main
+```
+## SOLUCION 2
+
+```bash
+git checkout -b development
+git checkout main
+echo -e '\nconsole.log("Modificación Reto 3 rama main");' >> index.js
+git stash -u -m "2025-04-25 Modifica index.js en rama main"
+git stash show -p stash@{0}
+git stash list
+git checkout development
+echo -e '\nconsole.log("Modificación Reto 3 rama development");' >> index.js
+git add -A
+git commit -m "Modificación al archivo index.js rama development"
+git push origin development
+git checkout main
+git stash pop stash@{0}
+git add -A
+git commit -m "Modificación al archivo index.js rama main"
+git push origin main
+```
+## RETO 5
+
+Realizar las siguientes tareas:
+
+1. Ubicarse en la rama main
+2. Crear un archivo llamado operaciones.ts agregando una función que permita sumar dos números y retornar el resultado
+3. Sin perder el cambio de la rama main y sin hacer commit o push de los cambios, cambiar a la rama development, recuperar las modificaciones hechas en el punto 2 asegurandose que los cambios permanezcan disponibles para ser usados en cualquier otra rama
+4. Hacer push a la rama development
+5. Regresar a la rama main, recuperar los cambios. NO se debe hacer commit ni push a la rama main
+6. Eliminar el archivo package.json del proyecto
+7. Recuperar el archivo package.json
+
+Se debe dejar el registro de todos los comandos o acciones realizadas para el cumplimiento del reto
