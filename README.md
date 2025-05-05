@@ -212,6 +212,15 @@ git push origin main
 # 3. Cambiar a la rama development
 git checkout development
 
-# Modificar el archivo operaciones.ts
+# 4. Modificar el archivo operaciones.ts
+# 4.1. Agregue el console.log('Operaciones Matamáticas');
+# 4.2. Cambie el nombre del método suma por opAdd
+# 4.3. Agregue un tercer parámetro al método opAdd y que sea tenido en cuenta en la operación
+# 4.4. Agregue un nuevo método llamado opLess, que reciba dos parámetros y retorne el valor de la operación de restar los dos parámetros
+
+# 5. Actualizar la rama development en el repo remoto
+git add -A
+git commit -m "se agrego el log al inicio, cambios en la funcion de suma por opAdd mas un nuevo parametro y una nueva funcion opLess"
+git push origin development
 
 ```
