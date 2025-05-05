@@ -230,4 +230,6 @@ git add -A
 git commit -m "se agrega funcion de division en operaciones.ts"
 git push origin main
 
+# 7. fusionar los cambios remotos de development en la rama local main.
+git pull origin development
 ```
