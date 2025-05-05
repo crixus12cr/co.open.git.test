@@ -136,3 +136,71 @@ git add -A
 git commit -m "Modificación al archivo index.js rama main"
 git push origin main
 ```
+
+## RETO 5
+
+Realizar las siguientes tareas:
+
+1. Ubicarse en la rama main
+2. Crear un archivo llamado operaciones.ts agregando una función que permita sumar dos números y retornar el resultado
+3. Sin perder el cambio de la rama main y sin hacer commit o push de los cambios, cambiar a la rama development, recuperar las modificaciones hechas en el punto 2 asegurandose que los cambios permanezcan disponibles para ser usados en cualquier otra rama
+4. Hacer push a la rama development
+5. Regresar a la rama main, recuperar los cambios. NO se debe hacer commit ni push a la rama main
+6. Eliminar el archivo package.json del proyecto
+7. Recuperar el archivo package.json
+
+Se debe dejar el registro de todos los comandos o acciones realizadas para el cumplimiento del reto
+
+## SOLUCION 
+
+```bash
+# UBICARSE EN LA RAMA MAIN
+git branch
+# creacion de archivo operaciones.ts
+cree el archivo manualmente y agrege la funcion para sumar dos numeros
+# sin perder los cambios pasarse a la rama development y recuperar los cambios hechos
+git stash -u -m "2025-05-02 archivo operaciones.ts rama main"
+git stash pop stash@{0}
+# Hacer push de la rama development
+git add -A
+git commit -m "agregando archivo y funcion de suma de numeros"
+git push origin development
+
+# regresar a la rama main, recuperar los cambios
+git checkout main
+git checkout development -- operaciones.ts
+git checkout development -- README.md
+
+# eliminar el archivo package.json
+se elimino manualmente
+
+# Recuperar el archivo package.json
+git checkout HEAD -- package.json
+# recomendado
+git restore packagae.json
+```
+
+## Reto 6
+Realizar las siguientes tareas:
+
+1. Ubicarse en la rama main
+2. Actualizar el repo remoto en la rama main con los cambios pendientes del reto anterior
+3. Cambiar a la rama development
+4. Modificar el archivo operaciones.ts para:
+    4.1. Agrega en la primera línea del archivo: console.log('Operaciones Matamáticas');
+    4.2. Cambia el nombre del método suma por opAdd
+    4.3. Agregar un tercer parámetro al método opAdd y que sea tenido en cuenta en la operación
+    4.4. Agregar un nuevo método llamado opLess, que reciba dos parámetros y retorne el valor de la operación de restar los dos parámetros
+5. Actualizar la rama development en el repo remoto
+6. Cambiar a la rama main y modificar el archivo operaciones.ts agregando una operación de división, luego actualizar la rama main con el cambio en el repo remoto 
+7. Fusionar los cambios de la rama remota development en la rama local main
+8. Actualizar la rama main en el repo remoto
+
+Se debe dejar el registro de todos los comandos o acciones realizadas para el cumplimiento del reto, incluyendo la resolución de conflictos y justificación del comando usado para la fusión de cambios
+
+## SOLUCION 
+
+```bash
+# 1. ubicarse en la rama main.
+git branch
+```
