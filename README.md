@@ -223,4 +223,11 @@ git add -A
 git commit -m "se agrego el log al inicio, cambios en la funcion de suma por opAdd mas un nuevo parametro y una nueva funcion opLess"
 git push origin development
 
+# 6. cambiar a la rama main, y agregar en el operaciones.ts una funcion de division y actualizar el repo.
+git checkout main
+# se agrega la funcion de division en operaciones.ts
+git add -A
+git commit -m "se agrega funcion de division en operaciones.ts"
+git push origin main
+
 ```
