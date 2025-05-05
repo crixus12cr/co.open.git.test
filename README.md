@@ -235,4 +235,10 @@ git push origin main
 
 # 7. fusionar los cambios remotos de development en la rama local main.
 git pull origin development
+# se soluciono los conflictos al traer los cambios de development
+
+# 8. Actualizar la rama main.
+git add -A
+git commit -m "solucionando conflictos de development a main"
+git push origin main
 ```
