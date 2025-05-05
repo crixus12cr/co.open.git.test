@@ -136,7 +136,10 @@ git add -A
 git commit -m "Modificación al archivo index.js rama main"
 git push origin main
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> 87c0db4c49ed6d7ae5d75f4938754f4d61b3586e
 ## RETO 5
 
 Realizar las siguientes tareas:
