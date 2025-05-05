@@ -201,6 +201,17 @@ Se debe dejar el registro de todos los comandos o acciones realizadas para el cu
 ## SOLUCION 
 
 ```bash
-# 1. ubicarse en la rama main.
+# 1. Ubicarse en la rama main.
 git branch
+
+# 2. Actualizar el repo remoto en la rama main con los cambios pendientes del reto anterior.
+git add -A
+git commit -m "Cambios pendientes reto anterior"
+git push origin main
+
+# 3. Cambiar a la rama development
+git checkout development
+
+# Modificar el archivo operaciones.ts
+
 ```
