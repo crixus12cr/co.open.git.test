@@ -11,3 +11,7 @@ function opLess(a: number, b: number): number {
 function division(a: number, b: number): number {
     return a / b;
 }
+
+function multiplicar(a, b) {
+   return a*b;
+}
