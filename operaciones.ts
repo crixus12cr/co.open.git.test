@@ -12,6 +12,6 @@ function division(a: number, b: number): number {
     return a / b;
 }
 
-function multiplicar(a, b) {
-   return a*b;
+function porcentaje(a, b) {
+     return (a*b)/100;
 }
