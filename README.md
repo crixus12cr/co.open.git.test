@@ -292,3 +292,32 @@ git add :/
 git add -A && git commit -m "Mezcla cambios desde rama remota development y resolución de conflictos"
 git push origin main
 ```
+
+## RETO 7
+
+```
+git tag -a v1.0.0-beta <commit> -m "Prerelease (Beta) de lanzamiento del proyecto"
+git push origin v1.0.0-beta
+```
+
+En GitHUb:
+- En la página principal del proyecto, en la parte derecha, dar click en 'Create a new release'
+- Diligenciar el formulario seleccionando la versión 1.0.0-beta y verificar que se marque la casilla 'Set as a pre-release'
+
+Para que sirven las etiquetas:
+Principalmente sirven para identificar un punto de desarrollo determinado en un proyecto y son usadas para identificar versiones del desarrollo
+
+Para que sirven los releases:
+Permiten identificar una publicación oficial de una versión en la plataforma de administración de repositorios (GitHub, GitLab, etc) y pueden incluir archivos binarios como por ejemplo instaladores, archivos de ayuda o archivos anexos requeridos para el proyecto, y son ideales para compartir versiones de desarrollo entre personas/equipos de desarrollo
+
+Para que sirven los prereleases:
+Identifican una publicación aún NO oficial de una versión, por ejemplo versiones alpha, beta o borradores, generalmente los prerelease son usados en ambiente de pruebas (QA), y generalmente incluyen un sufijo indicando el status, por ejemplo -alpha, -beta, -rc1 (rc = release candidate)
+
+| **Elemento**  | **¿Qué marca?**          | **¿Quién lo ve?**      | **¿Para qué sirve?**                |
+|---------------|---------------------------|------------------------|-------------------------------------|
+| **Tag**       | Punto exacto en Git       | Desarrolladores        | Identificar versiones (ej. `v1.0.0`) |
+| **Release**   | Versión oficial en GitHub | Usuarios / Desarrolladores | Publicar cambios y binarios (instaladores, builds, etc.) |
+| **Prerelease**| Versión aún no final      | QA / Testers          | Probar antes de lanzar una versión estable (ej. `v1.0.0-beta`, `v2.0.0-rc1`) |
+
+Patrón Versionamiento Semántico (http://semver.org/spec/v2.0.0.html) es el patrón de versionamiento más común
+
