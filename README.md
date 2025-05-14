@@ -292,3 +292,66 @@ git add :/
 git add -A && git commit -m "Mezcla cambios desde rama remota development y resolución de conflictos"
 git push origin main
 ```
+
+## RETO 7
+
+Agrega el siguiente método en el archivo de operaciones en la rama main:
+
+function multiplicar(a, b) {
+    return a*b;
+}
+
+
+Actualiza el cambio en repo remoto (commit y push)
+
+Supongamos que el PO del proyecto nos indicó que el método no debía ser ese sino que debía ser el siguiente por lo que debes reemplazar el método multiplicar():
+function porcentaje(a, b) {
+    return (a*b)/100;
+}
+
+
+Actualiza el cambio en repo remoto (commit y push)
+
+Nuevamente el PO nos indica que debemos devolver el cambio y dejar solo el método múltiplicar, pero además notas que el método multiplicar() tiene un bug, porque generará una excepción si los parámetros a y b no son números, por lo que debes corregirlo
+
+Para corregir el bug deberás tener en cuenta:
+
+1. No puedes usar git checkout <commit>
+2. No puedes usar git reset <commit>
+3. No puedes simplemente modificar el archivo y hacer un nuevo commit, en este caso sería la solución más sencilla pero no esta permitido
+4. Debes buscar otra manera de realizar el cambio, en donde a nivel del histórico de cambios quede registrada (commit) la recuperación del cambio
+5. Soluciona el bug del método multiplicar
+6. Actualiza los cambios en el repo remoto
+7. Mezcla la rama main local en la rama development local y actualiza el repo remoto
+
+```bash
+# UBICARSE EN LA RAMA MAIN
+git checkout main
+# se agrega en el archivo de operaciones la funcion de multiplicar
+
+# ACTUALIZAR EL CAMBIO EN EL REPO Y SUBIR
+git add -A
+git commit -m "agregando funcion multiplicar"
+git push origin main
+
+# SE REEMPLAZA EL METODO MULTIPLICAR POR PORCENTAJE Y SE ACTUALIZA EL REPO
+git add -A
+git commit -m "reemplazando la funcion multiplicar por porcentaje"
+git push origin main
+
+# SE REVIERTEN LOS CAMBIOS DE PORCENTAJE A MULTPLICAR
+git log --oneline
+git revert 4f4d27f
+git commit -m "revertiendo cambios de porcentaje a multiplicar"
+
+# SE CORRIGE EL BUG DE MULTIPLICAR Y SE SUBEN LOS CAMBIOS
+git add -A 
+git commit -m "solucionando el bug de multiplicar"
+git push origin main
+
+# SE MEZCLA LA RAMA MAIN EN LA RAMA REMOTA DE DEVELOPMENT Y SE SUBEN LOS CAMBIOS
+git checkout development
+git pull origin main
+git push origin development 
+
+```
