@@ -355,3 +355,15 @@ git pull origin main
 git push origin development 
 
 ```
+
+## Changelog
+
+Asi mantenemos un registro de cambios en el archivo `CHANGELOG.md`.
+
+### ¿Para qué sirve?
+
+El changelog permite tener un historial claro y organizado de los cambios realizados en cada versión del proyecto, lo que facilita la trazabilidad para desarrolladores, testers y usuarios.
+
+### Estándar usado
+
+Este changelog sigue la guía [Keep a Changelog](https://keepachangelog.com/es/1.0.0/), que promueve una estructura legible y consistente, y utiliza [Semantic Versioning](https://semver.org/lang/es/) para la numeración de versiones.
