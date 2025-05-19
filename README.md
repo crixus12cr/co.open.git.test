@@ -295,29 +295,75 @@ git push origin main
 
 ## RETO 7
 
+Agrega el siguiente método en el archivo de operaciones en la rama main:
+
+function multiplicar(a, b) {
+    return a*b;
+}
+
+
+Actualiza el cambio en repo remoto (commit y push)
+
+Supongamos que el PO del proyecto nos indicó que el método no debía ser ese sino que debía ser el siguiente por lo que debes reemplazar el método multiplicar():
+function porcentaje(a, b) {
+    return (a*b)/100;
+}
+
+
+Actualiza el cambio en repo remoto (commit y push)
+
+Nuevamente el PO nos indica que debemos devolver el cambio y dejar solo el método múltiplicar, pero además notas que el método multiplicar() tiene un bug, porque generará una excepción si los parámetros a y b no son números, por lo que debes corregirlo
+
+Para corregir el bug deberás tener en cuenta:
+
+1. No puedes usar git checkout <commit>
+2. No puedes usar git reset <commit>
+3. No puedes simplemente modificar el archivo y hacer un nuevo commit, en este caso sería la solución más sencilla pero no esta permitido
+4. Debes buscar otra manera de realizar el cambio, en donde a nivel del histórico de cambios quede registrada (commit) la recuperación del cambio
+5. Soluciona el bug del método multiplicar
+6. Actualiza los cambios en el repo remoto
+7. Mezcla la rama main local en la rama development local y actualiza el repo remoto
+
+```bash
+# UBICARSE EN LA RAMA MAIN
+git checkout main
+# se agrega en el archivo de operaciones la funcion de multiplicar
+
+# ACTUALIZAR EL CAMBIO EN EL REPO Y SUBIR
+git add -A
+git commit -m "agregando funcion multiplicar"
+git push origin main
+
+# SE REEMPLAZA EL METODO MULTIPLICAR POR PORCENTAJE Y SE ACTUALIZA EL REPO
+git add -A
+git commit -m "reemplazando la funcion multiplicar por porcentaje"
+git push origin main
+
+# SE REVIERTEN LOS CAMBIOS DE PORCENTAJE A MULTPLICAR
+git log --oneline
+git revert 4f4d27f
+git commit -m "revertiendo cambios de porcentaje a multiplicar"
+
+# SE CORRIGE EL BUG DE MULTIPLICAR Y SE SUBEN LOS CAMBIOS
+git add -A 
+git commit -m "solucionando el bug de multiplicar"
+git push origin main
+
+# SE MEZCLA LA RAMA MAIN EN LA RAMA REMOTA DE DEVELOPMENT Y SE SUBEN LOS CAMBIOS
+git checkout development
+git pull origin main
+git push origin development 
+
 ```
-git tag -a v1.0.0-beta <commit> -m "Prerelease (Beta) de lanzamiento del proyecto"
-git push origin v1.0.0-beta
-```
 
-En GitHUb:
-- En la página principal del proyecto, en la parte derecha, dar click en 'Create a new release'
-- Diligenciar el formulario seleccionando la versión 1.0.0-beta y verificar que se marque la casilla 'Set as a pre-release'
+## Changelog
 
-Para que sirven las etiquetas:
-Principalmente sirven para identificar un punto de desarrollo determinado en un proyecto y son usadas para identificar versiones del desarrollo
+Asi mantenemos un registro de cambios notables del proyecto en el archivo `CHANGELOG.md`.
 
-Para que sirven los releases:
-Permiten identificar una publicación oficial de una versión en la plataforma de administración de repositorios (GitHub, GitLab, etc) y pueden incluir archivos binarios como por ejemplo instaladores, archivos de ayuda o archivos anexos requeridos para el proyecto, y son ideales para compartir versiones de desarrollo entre personas/equipos de desarrollo
+### ¿Para qué sirve?
 
-Para que sirven los prereleases:
-Identifican una publicación aún NO oficial de una versión, por ejemplo versiones alpha, beta o borradores, generalmente los prerelease son usados en ambiente de pruebas (QA), y generalmente incluyen un sufijo indicando el status, por ejemplo -alpha, -beta, -rc1 (rc = release candidate)
+El changelog permite tener un historial claro y organizado de los cambios realizados en cada versión del proyecto, lo que facilita la trazabilidad para desarrolladores, testers y usuarios.
 
-| **Elemento**  | **¿Qué marca?**          | **¿Quién lo ve?**      | **¿Para qué sirve?**                |
-|---------------|---------------------------|------------------------|-------------------------------------|
-| **Tag**       | Punto exacto en Git       | Desarrolladores        | Identificar versiones (ej. `v1.0.0`) |
-| **Release**   | Versión oficial en GitHub | Usuarios / Desarrolladores | Publicar cambios y binarios (instaladores, builds, etc.) |
-| **Prerelease**| Versión aún no final      | QA / Testers          | Probar antes de lanzar una versión estable (ej. `v1.0.0-beta`, `v2.0.0-rc1`) |
+### Estándar usado
 
-Patrón Versionamiento Semántico (http://semver.org/spec/v2.0.0.html) es el patrón de versionamiento más común
-
+Este changelog sigue la guía [Keep a Changelog](https://keepachangelog.com/es/1.0.0/), que promueve una estructura legible y consistente, y utiliza [Semantic Versioning](https://semver.org/lang/es/) para la numeración de versiones.
